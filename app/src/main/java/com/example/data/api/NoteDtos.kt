@@ -6,44 +6,44 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class NoteDto(
-    @Json(name = "id") val id: Int = 0,
-    @Json(name = "title") val title: String,
-    @Json(name = "content") val content: String,
-    @Json(name = "category") val category: String = "Personal",
-    @Json(name = "isPinned") val isPinned: Boolean = false,
-    @Json(name = "isCompleted") val isCompleted: Boolean = false,
-    @Json(name = "colorHex") val colorHex: String = "#FFF8E1",
-    @Json(name = "timestamp") val timestamp: Long = System.currentTimeMillis()
+    @param:Json(name = "id") val id: Int = 0,
+    @param:Json(name = "title") val title: String,
+    @param:Json(name = "content") val content: String,
+    @param:Json(name = "category") val category: String = "Personal",
+    @param:Json(name = "isPinned") val isPinned: Boolean = false,
+    @param:Json(name = "isCompleted") val isCompleted: Boolean = false,
+    @param:Json(name = "colorHex") val colorHex: String = "#FFF8E1",
+    @param:Json(name = "timestamp") val timestamp: Long = System.currentTimeMillis()
 )
 
 @JsonClass(generateAdapter = true)
 data class CreateNoteDto(
-    @Json(name = "title") val title: String,
-    @Json(name = "content") val content: String,
-    @Json(name = "category") val category: String,
-    @Json(name = "isPinned") val isPinned: Boolean,
-    @Json(name = "isCompleted") val isCompleted: Boolean = false,
-    @Json(name = "colorHex") val colorHex: String
+    @param:Json(name = "title") val title: String,
+    @param:Json(name = "content") val content: String,
+    @param:Json(name = "category") val category: String,
+    @param:Json(name = "isPinned") val isPinned: Boolean,
+    @param:Json(name = "isCompleted") val isCompleted: Boolean = false,
+    @param:Json(name = "colorHex") val colorHex: String
 )
 
 @JsonClass(generateAdapter = true)
 data class UpdateNoteDto(
-    @Json(name = "title") val title: String,
-    @Json(name = "content") val content: String,
-    @Json(name = "category") val category: String,
-    @Json(name = "isPinned") val isPinned: Boolean,
-    @Json(name = "isCompleted") val isCompleted: Boolean,
-    @Json(name = "colorHex") val colorHex: String
+    @param:Json(name = "title") val title: String,
+    @param:Json(name = "content") val content: String,
+    @param:Json(name = "category") val category: String,
+    @param:Json(name = "isPinned") val isPinned: Boolean,
+    @param:Json(name = "isCompleted") val isCompleted: Boolean,
+    @param:Json(name = "colorHex") val colorHex: String
 )
 
 @JsonClass(generateAdapter = true)
 data class UpdatePinDto(
-    @Json(name = "isPinned") val isPinned: Boolean
+    @param:Json(name = "isPinned") val isPinned: Boolean
 )
 
 @JsonClass(generateAdapter = true)
 data class UpdateCompletedDto(
-    @Json(name = "isCompleted") val isCompleted: Boolean
+    @param:Json(name = "isCompleted") val isCompleted: Boolean
 )
 
 // Extension functions for mapping

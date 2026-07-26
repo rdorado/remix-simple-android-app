@@ -19,7 +19,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "simple_notes_db"
-                ).fallbackToDestructiveMigration().build()
+                ).fallbackToDestructiveMigrationOnDowngrade().build()
                 INSTANCE = instance
                 instance
             }
