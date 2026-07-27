@@ -31,20 +31,24 @@ Simple Notes has been structured into a clean **Client-Server Architecture**:
 │   └── build.gradle.kts
 │
 ├── backend/                            # .NET Core 10 Web API Backend
-│   └── SimpleNotesApi/
-│       ├── Controllers/
-│       │   └── NotesController.cs      # REST API Controllers (CRUD + Filtering + Patch)
-│       ├── Data/
-│       │   └── NotesDbContext.cs       # Entity Framework Core DbContext with Npgsql
-│       ├── DTOs/
-│       │   └── NoteDtos.cs             # C# DTO Definitions
-│       ├── Models/
-│       │   └── Note.cs                 # Domain Entity mapped to PostgreSQL table
-│       ├── Properties/
-│       │   └── launchSettings.json     # Development profiles
-│       ├── appsettings.json            # Configuration & PostgreSQL Connection String
-│       ├── Dockerfile                  # .NET 10 Multi-stage container build definition
-│       └── SimpleNotesApi.csproj       # .NET 10 C# Project File
+│   ├── SimpleNotesBackend.sln          # Visual Studio Solution File (combines API & Tests)
+│   ├── SimpleNotesApi/
+│   │   ├── Controllers/
+│   │   │   └── NotesController.cs      # REST API Controllers (CRUD + Filtering + Patch)
+│   │   ├── Data/
+│   │   │   └── NotesDbContext.cs       # Entity Framework Core DbContext with Npgsql
+│   │   ├── DTOs/
+│   │   │   └── NoteDtos.cs             # C# DTO Definitions
+│   │   ├── Models/
+│   │   │   └── Note.cs                 # Domain Entity mapped to PostgreSQL table
+│   │   ├── Properties/
+│   │   │   └── launchSettings.json     # Development profiles
+│   │   ├── appsettings.json            # Configuration & PostgreSQL Connection String
+│   │   ├── Dockerfile                  # .NET 10 Multi-stage container build definition
+│   │   └── SimpleNotesApi.csproj       # .NET 10 C# Project File
+│   └── SimpleNotesApi.Tests/
+│       ├── NotesControllerTests.cs     # Unit tests covering all REST endpoints (xUnit + EF In-Memory)
+│       └── SimpleNotesApi.Tests.csproj # .NET 10 xUnit Test Project File
 │
 ├── docker-compose.yml                  # Container Orchestration (PostgreSQL 16 + .NET 10 API)
 ├── init-db.sql                         # PostgreSQL Schema DDL & Initial Seed Script

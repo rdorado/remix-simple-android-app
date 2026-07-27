@@ -27,11 +27,28 @@ A clean, modern note-taking application featuring a **Native Jetpack Compose And
    ```bash
    psql -U postgres -d simplenotesdb -f init-db.sql
    ```
-3. Start the .NET Core 10 Web API:
+3. Open `backend/SimpleNotesBackend.sln` in Visual Studio / JetBrains Rider, or run from terminal:
    ```bash
-   cd backend/SimpleNotesApi
-   dotnet run
+   cd backend
+   dotnet run --project SimpleNotesApi
    ```
+
+---
+
+## 🧪 Running Backend Unit Tests
+
+To run the xUnit test suite for the .NET 10 Web API across the solution:
+```bash
+cd backend
+dotnet test SimpleNotesBackend.sln
+```
+
+The test suite covers:
+- Querying all notes and filtering by category or keyword
+- Retrieving individual notes by ID
+- Creating, updating, and deleting notes
+- Toggling pin (`isPinned`) and completion (`isCompleted`) status via PATCH requests
+- Initial database seeding logic
 
 ---
 
