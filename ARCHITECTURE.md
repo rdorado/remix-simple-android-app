@@ -50,7 +50,31 @@ Simple Notes has been structured into a clean **Client-Server Architecture**:
 │       ├── NotesControllerTests.cs     # Unit tests covering all REST endpoints (xUnit + EF In-Memory)
 │       └── SimpleNotesApi.Tests.csproj # .NET 10 xUnit Test Project File
 │
-├── docker-compose.yml                  # Container Orchestration (PostgreSQL 16 + .NET 10 API)
+├── frontend/                           # React 18 TypeScript Admin Portal
+│   ├── src/
+│   │   ├── components/                 # Admin Dashboard UI Components
+│   │   │   ├── ConfirmDeleteModal.tsx  # Deletion confirmation modal
+│   │   │   ├── LoginScreen.tsx         # Admin authentication view
+│   │   │   ├── Navbar.tsx              # Navigation & Header controls
+│   │   │   ├── NoteModal.tsx           # Create / Edit note form dialog
+│   │   │   ├── NotesGrid.tsx           # Card grid preview mode
+│   │   │   ├── NotesTable.tsx          # Data table view with sorting & filters
+│   │   │   ├── StatsOverview.tsx       # Database analytics & health metrics
+│   │   │   └── Toast.tsx               # Toast feedback notifications
+│   │   ├── services/
+│   │   │   └── api.ts                  # REST API client for backend communication
+│   │   ├── types/
+│   │   │   └── note.ts                 # TypeScript DTO & Model interfaces
+│   │   ├── App.tsx                     # Main React Admin Application
+│   │   ├── main.tsx                    # React DOM entry point
+│   │   └── index.css                   # Custom Admin Dark Theme styling
+│   ├── Dockerfile                      # Multi-stage Dockerfile (Vite build + Nginx alpine)
+│   ├── nginx.conf                      # Nginx reverse proxy configuration
+│   ├── package.json                    # Dependencies & Scripts
+│   ├── tsconfig.json                   # TypeScript compiler options
+│   └── vite.config.ts                  # Vite bundler & API proxy configuration
+│
+├── docker-compose.yml                  # Container Orchestration (PostgreSQL 16 + .NET API + React Admin)
 ├── init-db.sql                         # PostgreSQL Schema DDL & Initial Seed Script
 ├── ARCHITECTURE.md                     # Architecture & Organization Documentation
 └── README.md                           # Setup & Developer Guide

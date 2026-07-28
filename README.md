@@ -6,7 +6,7 @@ A clean, modern note-taking application featuring a **Native Jetpack Compose And
 
 ## 🚀 Quick Start Guide
 
-### Option A: Run Backend using Docker Compose (Recommended)
+### Option A: Run Backend & Admin Portal using Docker Compose (Recommended)
 
 1. Make sure **Docker** and **Docker Compose** are installed on your machine.
 2. In the project root, run:
@@ -17,6 +17,36 @@ A clean, modern note-taking application featuring a **Native Jetpack Compose And
    - **PostgreSQL Database**: Port `5432`
    - **.NET Core 10 Web API**: Port `5000`
    - **Swagger UI**: Accessible at `http://localhost:5000`
+   - **React TypeScript Admin Frontend**: Accessible at `http://localhost:3000`
+
+---
+
+## 🛠️ React TypeScript Admin Frontend (`./frontend`)
+
+An administrative web application built with **React 18**, **TypeScript**, and **Vite** for database maintenance and live record management.
+
+### Features:
+- **Authentication**: Admin login portal with role scopes (`System Administrator` / `Data Auditor`).
+- **Full CRUD Operations**: Create, view, update, and delete notes directly in PostgreSQL.
+- **Quick Toggles**: One-click Pin / Unpin and Complete / Incomplete state updates.
+- **Search & Filter**: Real-time searching across title & content, with category filtering.
+- **View Modes**: Switch between Data Table view with sorting and Visual Card Grid view.
+- **Database Utilities**: Seed sample database entries and review database connection health metrics.
+
+### Running Frontend Locally (Dev Mode):
+```bash
+cd frontend
+npm install
+npm run dev
+```
+The admin app will launch at `http://localhost:3000` and automatically proxy API calls to `http://localhost:5000`.
+
+### Building with Docker (`./frontend/Dockerfile`):
+```bash
+cd frontend
+docker build -t simple-notes-admin-frontend .
+docker run -p 3000:80 simple-notes-admin-frontend
+```
 
 ---
 
