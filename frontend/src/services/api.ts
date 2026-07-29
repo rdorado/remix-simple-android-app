@@ -1,7 +1,7 @@
 import { Note, CreateNoteDto, UpdateNoteDto } from '../types/note';
 
 const getBaseUrl = (): string => {
-  const envUrl = import.meta.env.VITE_API_BASE_URL;
+  const envUrl = (import.meta as any).env?.VITE_API_BASE_URL;
   if (envUrl) {
     return envUrl.endsWith('/') ? `${envUrl}api/notes` : `${envUrl}/api/notes`;
   }
